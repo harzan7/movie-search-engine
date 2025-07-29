@@ -42,11 +42,15 @@ function Home() {
                 <button type="submit" className="search-button">Search</button>
             </form>
 
-            <div className="movies-grid">
-                {movies.map((movie) => (
-                    <MovieCard movie={movie} key={movie.id}></MovieCard>
-                ))}
-            </div>
+            {loading ?
+                (<div className={"loading"}>Loading...</div>)
+                :
+                (<div className={"movies-grid"}>
+                    {movies.map((movie) => (
+                        <MovieCard movie={movie} key={movie.id} />
+                    ))}
+                </div>)
+            }
         </div>
     );
 }
